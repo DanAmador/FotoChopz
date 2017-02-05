@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<!--<GridPane fx:controller="views.mainWindowControllerController"-->
+<!--xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">-->
+<!--</GridPane>-->
+
+<HBox fillHeight="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.MainWindowController">
+  <children>
+    <BorderPane prefHeight="400.0" prefWidth="400.0">
+      <left>
+        <Accordion>
+          <expandedPane>
+            <TitledPane fx:id="x1" animated="false" text="Image">
+              <content>
+                <ImageView fx:id="main_image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+              </content>
+            </TitledPane>
+          </expandedPane>
+          <panes>
+            <fx:reference source="x1" />
+            <TitledPane animated="false" content="$null" text="Histogram" />
+          </panes>
+        </Accordion>
+      </left>
+      <top>
+        <MenuBar id="menu_bar_main" fx:id="menu">
+          <menus>
+            <Menu mnemonicParsing="false" text="File" fx:id="menu_main_file">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleLoadAction" text="Load" fx:id="menu_file_load" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</HBox>
