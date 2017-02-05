@@ -76,7 +76,17 @@
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Red" fx:id="check_red" />
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Green" fx:id="check_green" />
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Blue" fx:id="check_blue" />
-                    <CheckMenuItem mnemonicParsing="false" text="Grayscale" fx:id="check_grayscale" />
+                    <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Grayscale" fx:id="check_grayscale" />
+                    <Menu mnemonicParsing="false" text="Grayscale Type">
+                      <fx:define>
+                        <ToggleGroup fx:id="toggle_grayscale" />
+                      </fx:define>
+                      <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="false" text="Average" toggleGroup="$toggle_grayscale" fx:id="radio_average" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Weight" toggleGroup="$toggle_grayscale" fx:id="radio_weight" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Lightness" toggleGroup="$toggle_grayscale" fx:id="radio_lightness" />
+                      </items>
+                    </Menu>
                   </items>
                 </Menu>
               </items>

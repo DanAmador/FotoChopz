@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -22,6 +23,7 @@ public class MainWindowController {
     @FXML private ImageView main_image, filter_image;
     @FXML private LineChart main_histogram, filteredHistogram;
     @FXML private CheckMenuItem check_red, check_green, check_blue, check_grayscale;
+    @FXML private RadioMenuItem radio_average, radio_lightness, radio_weight;
     private FilteredImage fullColorFiltered = new FilteredImage();
     private FileChooser image_chooser = new FileChooser();
 
@@ -43,17 +45,22 @@ public class MainWindowController {
 
     @FXML
     private void changeColorModel() {
-
+        HashMap<String, Boolean> params = new HashMap<String,Boolean>();
+        Image colorImage;
         if (!check_grayscale.isSelected()) {
-            HashMap<String, Boolean> params = new HashMap<String,Boolean>();
             params.put("red", check_red.isSelected());
             params.put("green", check_green.isSelected());
             params.put("blue", check_blue.isSelected());
-            Image colorImage = ColorFilters.chooseColorChannel(fullColorFiltered.getImage(),params);
+            colorImage = ColorFilters.chooseColorChannel(fullColorFiltered.getImage(),params);
             filter_image.setImage(colorImage);
             updateHistogram(colorImage);
         } else {
-            //TODO Grayscale shit
+            params.put("lightness", radio_lightness.isSelected() );
+            params.put("average", radio_average.isSelected());
+            params.put("weight", radio_weight.isSelected());
+            colorImage = ColorFilters.chooseGrayscaleType(fullColorFiltered.getImage(), params);
+            filter_image.setImage(colorImage);
+            updateHistogram(colorImage);
         }
     }
 
