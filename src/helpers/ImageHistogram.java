@@ -1,12 +1,10 @@
-package views;
+package helpers;
 
 import javafx.scene.chart.XYChart;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 
-/**
- * Created by Dan Amador on 2/4/2017.
- */
+
 
 public class ImageHistogram {
 
@@ -24,7 +22,7 @@ public class ImageHistogram {
 
     private boolean success;
 
-    ImageHistogram(Image src) {
+    public ImageHistogram(Image src) {
         image = src;
         success = false;
 
