@@ -1,9 +1,10 @@
 package helpers;
 
+import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-
+import javafx.scene.paint.Color;
 
 
 public class ImageHistogram {
@@ -74,6 +75,9 @@ public class ImageHistogram {
         success = true;
     }
 
+    public String getStringColor(Color color){
+        return String.format("%d, %d, %d", (int) (color.getRed() * 255), (int) (color.getGreen() * 255), (int) (color.getBlue() * 255));
+    }
     public boolean isSuccess() {
         return success;
     }
