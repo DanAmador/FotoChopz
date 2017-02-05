@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fillHeight="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.MainWindowController">
+<HBox fillHeight="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.MainWindowController">
   <children>
     <BorderPane prefHeight="-1.0" prefWidth="-1.0">
       <center>
         <VBox prefHeight="-1.0" prefWidth="-1.0">
           <children>
-            <TitledPane animated="false" text="Image" VBox.vgrow="ALWAYS">
+            <TitledPane animated="true" text="Image" VBox.vgrow="ALWAYS">
               <content>
                 <ImageView id="image" fx:id="filter_image" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
               </content>
             </TitledPane>
-            <TitledPane animated="false" text="Histogram">
+            <TitledPane animated="true" text="Histogram">
               <content>
-                <LineChart id="LineChart">
+                <LineChart fx:id="filteredHistogram">
                   <xAxis>
                     <CategoryAxis side="BOTTOM" />
                   </xAxis>
@@ -46,7 +46,7 @@
                 <ImageView fx:id="main_image" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
               </content>
             </TitledPane>
-            <TitledPane animated="false" text="Histogram" VBox.vgrow="ALWAYS">
+            <TitledPane animated="true" text="Histogram" VBox.vgrow="ALWAYS">
               <content>
                 <LineChart fx:id="main_histogram" alternativeColumnFillVisible="false" disable="false" focusTraversable="false" style="">
                   <xAxis>
@@ -76,6 +76,7 @@
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Red" fx:id="check_red" />
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Green" fx:id="check_green" />
                     <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Blue" fx:id="check_blue" />
+                    <CheckMenuItem mnemonicParsing="false" text="Grayscale" fx:id="check_grayscale" />
                   </items>
                 </Menu>
               </items>

@@ -1,6 +1,5 @@
-package helpers;
+package Helpers;
 
-import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
