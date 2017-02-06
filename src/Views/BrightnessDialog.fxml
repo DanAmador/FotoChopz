@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="root" alignment="CENTER" disable="false" fillWidth="true" snapToPixel="true" spacing="5.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.BrightnessWindowController">
+  <children>
+    <Label alignment="CENTER" rotate="360.0" text="Brightness level" VBox.vgrow="ALWAYS">
+      <labelFor>
+        <Slider fx:id="slider_brightness" max="255.0" min="-255.0" orientation="HORIZONTAL" showTickLabels="false" showTickMarks="false" snapToTicks="false" value="0.0" VBox.vgrow="ALWAYS" />
+      </labelFor>
+    </Label>
+    <fx:reference source="slider_brightness" />
+    <Button fx:id="button_brightness" alignment="CENTER" mnemonicParsing="false" onAction="#submitValue" prefWidth="200.0" text="Submit" VBox.vgrow="ALWAYS" />
+  </children>
+</VBox>

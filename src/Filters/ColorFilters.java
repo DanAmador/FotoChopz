@@ -77,4 +77,25 @@ public class ColorFilters {
         }
         return ic.wImage;
     }
+
+    public static Image chooseBrightness(Image image, double value) {
+        ic = new ImageCharacteristics(image);
+        for (int x = 0; x < ic.width; x++) {
+            for (int y = 0; y < ic.height; y++) {
+
+                double brightnessAdded = value / 255;
+                Color color = ic.pr.getColor(x, y);
+                ic.pw.setColor(x, y, Color.color(boundaryCheck(color.getRed() + brightnessAdded ),
+                        boundaryCheck(color.getGreen() + brightnessAdded ),
+                        boundaryCheck(color.getBlue() + brightnessAdded) ));
+            }
+        }
+        return ic.wImage;
+    }
+
+    private static double boundaryCheck(double value){
+        if (value > 1) return 1;
+        else if (value < 0) return 0;
+        return value;
+    }
 }

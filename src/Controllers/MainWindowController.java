@@ -5,29 +5,49 @@ import Helpers.FilteredImage;
 import Helpers.ImageHistogram;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Optional;
 
 
 public class MainWindowController {
-    @FXML private MenuItem menu_file_load;
+    @FXML private MenuItem menu_file_load, menu_brightness;
     @FXML private Window main_stage;
     @FXML private ImageView main_image, filter_image;
     @FXML private LineChart main_histogram, filteredHistogram;
     @FXML private CheckMenuItem check_red, check_green, check_blue, check_grayscale, check_contrast_inverse, check_contrast;
     @FXML private RadioMenuItem radio_average, radio_lightness, radio_weight;
-    private FilteredImage fullColorFiltered = new FilteredImage();
+    private FilteredImage fullColorFiltered = FilteredImage.getInstance();
     private FileChooser image_chooser = new FileChooser();
 
+    @FXML
+    private void changeBrightness() throws IOException {
+        Stage dialog = new Stage();
+        //new VBox(new Label("Choose Brightness"),new Slider(0, 255, 127), new Button("Submit"))
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/BrightnessDialog.fxml"));
+        dialog.initStyle(StageStyle.UTILITY);
+        Scene scene = new Scene(root, 200,200);
+        dialog.setScene(scene);
+        dialog.showAndWait();
 
+        filter_image.setImage(fullColorFiltered.getImage());
+        updateHistogram(fullColorFiltered.getImage());
+    }
     @FXML
     private void handleLoadAction(final ActionEvent event) {
         image_chooser.setTitle("Load Image");

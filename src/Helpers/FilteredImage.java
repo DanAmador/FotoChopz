@@ -10,8 +10,13 @@ import java.util.Stack;
 public class FilteredImage {
     private Image image;
     private Stack<String> filtersUsed;
+    private static FilteredImage ourInstance = new FilteredImage();
 
-    public FilteredImage() {
+    public static FilteredImage getInstance() {
+        return ourInstance;
+    }
+
+    private FilteredImage() {
         filtersUsed = new Stack<String>();
     }
 
