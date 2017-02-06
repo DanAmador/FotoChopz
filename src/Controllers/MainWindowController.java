@@ -22,7 +22,7 @@ public class MainWindowController {
     @FXML private Window main_stage;
     @FXML private ImageView main_image, filter_image;
     @FXML private LineChart main_histogram, filteredHistogram;
-    @FXML private CheckMenuItem check_red, check_green, check_blue, check_grayscale;
+    @FXML private CheckMenuItem check_red, check_green, check_blue, check_grayscale, check_contrast_inverse, check_contrast;
     @FXML private RadioMenuItem radio_average, radio_lightness, radio_weight;
     private FilteredImage fullColorFiltered = new FilteredImage();
     private FileChooser image_chooser = new FileChooser();
@@ -43,6 +43,12 @@ public class MainWindowController {
         updateHistogram(fullColorFiltered.getImage());
     }
 
+    @FXML
+    private void changeContrast(){
+        Image colorImage = ColorFilters.chooseContrast(fullColorFiltered.getImage(),check_contrast_inverse.isSelected());
+        filter_image.setImage(colorImage);
+        updateHistogram(colorImage);
+    }
     @FXML
     private void changeColorModel() {
         HashMap<String, Boolean> params = new HashMap<String,Boolean>();

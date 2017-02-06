@@ -21,4 +21,12 @@ public class ImageCharacteristics {
         wImage = new WritableImage(width, height);
         pw = wImage.getPixelWriter();
     }
+
+    public ImageCharacteristics(int width, int height){
+        width = this.width;
+        height = this.height;
+        wImage = new WritableImage(width, height);
+        pw = wImage.getPixelWriter();
+        pr = wImage.getPixelReader();
+    }
 }

@@ -64,7 +64,7 @@ public class ImageHistogram {
 
         //copy alpha[], red[], green[], blue[]
         //to seriesAlpha, seriesRed, seriesGreen, seriesBlue
-        for (int i = 0; i < 256; i++) {
+        for (int i = 1; i < 256; i++) {
             seriesAlpha.getData().add(new XYChart.Data(String.valueOf(i), alpha[i]));
             seriesRed.getData().add(new XYChart.Data(String.valueOf(i), red[i]));
             seriesGreen.getData().add(new XYChart.Data(String.valueOf(i), green[i]));

@@ -87,6 +87,12 @@
                         <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Lightness" toggleGroup="$toggle_grayscale" fx:id="radio_lightness" />
                       </items>
                     </Menu>
+                    <Menu mnemonicParsing="false" text="Contrast">
+                      <items>
+                        <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Contrast" fx:id="check_contrast" />
+                        <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Inverse" fx:id="check_contrast_inverse" />
+                      </items>
+                    </Menu>
                   </items>
                 </Menu>
               </items>
