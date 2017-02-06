@@ -38,7 +38,6 @@ public class MainWindowController {
     @FXML
     private void changeBrightness() throws IOException {
         Stage dialog = new Stage();
-        //new VBox(new Label("Choose Brightness"),new Slider(0, 255, 127), new Button("Submit"))
         Parent root = FXMLLoader.load(getClass().getResource("/Views/BrightnessDialog.fxml"));
         dialog.initStyle(StageStyle.UTILITY);
         Scene scene = new Scene(root, 200,200);
