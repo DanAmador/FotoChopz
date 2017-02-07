@@ -17,7 +17,7 @@ public class ImageCharacteristics {
     public ImageCharacteristics(Image image){
         pr = image.getPixelReader();
         width = (int) image.getWidth();
-        height = (int) image.getWidth();
+        height = (int) image.getHeight();
         wImage = new WritableImage(width, height);
         pw = wImage.getPixelWriter();
     }

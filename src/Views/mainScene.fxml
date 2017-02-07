@@ -98,6 +98,11 @@
                 </Menu>
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Filters">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#mosaicFilter" text="Mosaic" fx:id="menu_mosaic" />
+              </items>
+            </Menu>
           </menus>
         </MenuBar>
       </top>

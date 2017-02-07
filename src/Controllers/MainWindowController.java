@@ -6,15 +6,14 @@ import Helpers.ImageHistogram;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,11 +21,10 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Optional;
 
 
 public class MainWindowController {
-    @FXML private MenuItem menu_file_load, menu_brightness;
+    @FXML private MenuItem menu_file_load, menu_brightness, menu_mosaic;
     @FXML private Window main_stage;
     @FXML private ImageView main_image, filter_image;
     @FXML private LineChart main_histogram, filteredHistogram;
@@ -37,16 +35,18 @@ public class MainWindowController {
 
     @FXML
     private void changeBrightness() throws IOException {
-        Stage dialog = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/BrightnessDialog.fxml"));
-        dialog.initStyle(StageStyle.UTILITY);
-        Scene scene = new Scene(root, 200,200);
-        dialog.setScene(scene);
-        dialog.showAndWait();
-
+        openDialog("/Views/BrightnessDialog.fxml");
         filter_image.setImage(fullColorFiltered.getImage());
         updateHistogram(fullColorFiltered.getImage());
     }
+
+    @FXML
+    private void mosaicFilter() throws IOException {
+        openDialog("/Views/MosaicDialog.fxml");
+        filter_image.setImage(fullColorFiltered.getImage());
+        updateHistogram(fullColorFiltered.getImage());
+    }
+
     @FXML
     private void handleLoadAction(final ActionEvent event) {
         image_chooser.setTitle("Load Image");
@@ -87,6 +87,15 @@ public class MainWindowController {
             filter_image.setImage(colorImage);
             updateHistogram(colorImage);
         }
+    }
+
+    private void openDialog(String dialogRoute) throws IOException {
+        Stage dialog = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource(dialogRoute));
+        dialog.initStyle(StageStyle.UTILITY);
+        Scene scene = new Scene(root, 200,200);
+        dialog.setScene(scene);
+        dialog.showAndWait();
     }
 
     private void updateHistogram(Image image_2_histogram){
