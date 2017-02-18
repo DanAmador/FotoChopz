@@ -73,6 +73,13 @@ public class MainWindowController {
         filter_image.setImage(colorImage);
         updateHistogram(colorImage);
     }
+
+    @FXML
+    private void toSepia(){
+        Image colorImage = ColorFilters.sepiaTone(fullColorFiltered.getImage());
+        fullColorFiltered.setImage(colorImage);
+        updateHistogram(colorImage);
+    }
     @FXML
     private void changeColorModel() {
         HashMap<String, Boolean> params = new HashMap<String,Boolean>();

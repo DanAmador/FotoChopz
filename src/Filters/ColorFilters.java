@@ -50,6 +50,20 @@ public class ColorFilters {
         return ic.wImage;
     }
 
+    public static Image sepiaTone(Image image){
+        ic = new ImageCharacteristics(image);
+        for (int x = 0; x < ic.width; x++) {
+            for (int y = 0; y < ic.height; y++) {
+                Color color = ic.pr.getColor(x, y);
+                ic.pw.setColor(x, y,
+                        Color.color(
+                boundaryCheck(color.getRed() * .393 + (color.getGreen() *.769) + (color.getBlue()* .189)),
+                boundaryCheck(color.getRed() * .349 + (color.getGreen() *.686) + (color.getBlue()* .168)),
+                boundaryCheck(color.getRed() * .272 + (color.getGreen() *.534) + (color.getBlue()* .131))));
+            }
+        }
+        return ic.wImage;
+    }
     private static Color lightness(Color color) {
         double lightVal = (Math.min(Math.min(color.getRed(), color.getGreen()), color.getBlue()) + Math.max(Math.max(color.getRed(), color.getGreen()), color.getBlue())) / 2;
         return Color.color(lightVal, lightVal, lightVal);

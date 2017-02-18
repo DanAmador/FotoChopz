@@ -95,6 +95,7 @@
                       </items>
                     </Menu>
                     <MenuItem mnemonicParsing="false" onAction="#changeBrightness" text="Brightness" fx:id="menu_brightness" />
+                    <MenuItem mnemonicParsing="false" onAction="#toSepia" text="Sepia" fx:id="menu_sepia" />
                   </items>
                 </Menu>
               </items>
