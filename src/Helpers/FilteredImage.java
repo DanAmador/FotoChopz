@@ -8,7 +8,7 @@ import java.util.Stack;
  * Created by Dan Amador on 2/5/2017.
  */
 public class FilteredImage {
-    private Image image;
+    private Stack<Image> history_stack;
     private Stack<String> filtersUsed;
     private static FilteredImage ourInstance = new FilteredImage();
 
@@ -18,14 +18,21 @@ public class FilteredImage {
 
     private FilteredImage() {
         filtersUsed = new Stack<String>();
+        history_stack = new Stack<Image>();
     }
 
     public void setImage(Image image){
-        this.image = image;
+        this.history_stack.push(image);
     }
 
+    public void popLast(){
+        if (this.history_stack.size() > 1){
+            this.history_stack.pop();
+        }
+    }
+    public void pushImage(Image history_element){history_stack.push(history_element);}
     public Image getImage(){
-        return image;
+        return history_stack.peek();
     }
     public void addFilter(String filterUsed){
         filtersUsed.add(filterUsed);

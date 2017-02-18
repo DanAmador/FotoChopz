@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 
 public class MainWindowController {
-    @FXML private MenuItem menu_file_load, menu_brightness, menu_mosaic;
+    @FXML private MenuItem menu_file_load, menu_brightness, menu_mosaic,menu_undo;
     @FXML private Window main_stage;
     @FXML private ImageView main_image, filter_image;
     @FXML private LineChart main_histogram, filteredHistogram;
@@ -47,6 +47,11 @@ public class MainWindowController {
         updateHistogram(fullColorFiltered.getImage());
     }
 
+    @FXML
+    private void get_last(){
+        fullColorFiltered.popLast();
+        updateHistogram(fullColorFiltered.getImage());
+    }
     @FXML
     private void handleLoadAction(final ActionEvent event) {
         image_chooser.setTitle("Load Image");

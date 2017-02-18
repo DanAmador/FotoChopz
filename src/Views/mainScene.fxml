@@ -67,6 +67,7 @@
             <Menu mnemonicParsing="false" text="File" fx:id="menu_main_file">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleLoadAction" text="Load" fx:id="menu_file_load" />
+                <MenuItem mnemonicParsing="false" onAction="#get_last" text="Undo" fx:id="menu_undo" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
