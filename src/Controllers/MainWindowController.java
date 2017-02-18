@@ -36,14 +36,12 @@ public class MainWindowController {
     @FXML
     private void changeBrightness() throws IOException {
         openDialog("/Views/BrightnessDialog.fxml");
-        filter_image.setImage(fullColorFiltered.getImage());
         updateHistogram(fullColorFiltered.getImage());
     }
 
     @FXML
     private void mosaicFilter() throws IOException {
         openDialog("/Views/MosaicDialog.fxml");
-        filter_image.setImage(fullColorFiltered.getImage());
         updateHistogram(fullColorFiltered.getImage());
     }
 
@@ -55,7 +53,7 @@ public class MainWindowController {
     @FXML
     private void handleLoadAction(final ActionEvent event) {
         image_chooser.setTitle("Load Image");
-        fullColorFiltered.setImage(new Image(String.valueOf(image_chooser.showOpenDialog(main_stage).toURI())));
+        fullColorFiltered.pushImage(new Image(String.valueOf(image_chooser.showOpenDialog(main_stage).toURI())));
         ImageHistogram imageHistogram = new ImageHistogram(fullColorFiltered.getImage());
 
         main_image.setImage(fullColorFiltered.getImage());
@@ -70,14 +68,14 @@ public class MainWindowController {
     @FXML
     private void changeContrast(){
         Image colorImage = ColorFilters.chooseContrast(fullColorFiltered.getImage(),check_contrast_inverse.isSelected());
-        filter_image.setImage(colorImage);
+        fullColorFiltered.pushImage(colorImage);
         updateHistogram(colorImage);
     }
 
     @FXML
     private void toSepia(){
         Image colorImage = ColorFilters.sepiaTone(fullColorFiltered.getImage());
-        fullColorFiltered.setImage(colorImage);
+        fullColorFiltered.pushImage(colorImage);
         updateHistogram(colorImage);
     }
     @FXML
@@ -89,14 +87,14 @@ public class MainWindowController {
             params.put("green", check_green.isSelected());
             params.put("blue", check_blue.isSelected());
             colorImage = ColorFilters.chooseColorChannel(fullColorFiltered.getImage(),params);
-            filter_image.setImage(colorImage);
+            fullColorFiltered.pushImage(colorImage);
             updateHistogram(colorImage);
         } else {
             params.put("lightness", radio_lightness.isSelected() );
             params.put("average", radio_average.isSelected());
             params.put("weight", radio_weight.isSelected());
             colorImage = ColorFilters.chooseGrayscaleType(fullColorFiltered.getImage(), params);
-            filter_image.setImage(colorImage);
+            fullColorFiltered.pushImage(colorImage);
             updateHistogram(colorImage);
         }
     }

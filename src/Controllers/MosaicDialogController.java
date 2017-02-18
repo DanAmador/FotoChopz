@@ -21,7 +21,7 @@ public class MosaicDialogController {
     public void submitValue() {
         int height = (int)slider_height.getValue();
         int width = (int)slider_width.getValue();
-        fullColorFiltered.setImage(MosaicFilters.chooseMosaic(fullColorFiltered.getImage(),height,width ));
+        fullColorFiltered.pushImage(MosaicFilters.chooseMosaic(fullColorFiltered.getImage(),height,width ));
         fullColorFiltered.addFilter(String.format("Mosaic filter with area: %dx%d", height,width));
         Stage stage = (Stage) submit_button.getScene().getWindow();
         stage.close();

@@ -20,7 +20,7 @@ public class BrightnessWindowController {
 
     @FXML
     public void submitValue(){
-        fullColorFiltered.setImage(ColorFilters.chooseBrightness(fullColorFiltered.getImage(),slider_brightness.getValue()));
+        fullColorFiltered.pushImage(ColorFilters.chooseBrightness(fullColorFiltered.getImage(),slider_brightness.getValue()));
         fullColorFiltered.addFilter(String.format("Brightness with value %f brightness", slider_brightness.getValue() ));
         Stage stage = (Stage) submit_button.getScene().getWindow();
         stage.close();

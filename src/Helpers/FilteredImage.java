@@ -21,7 +21,7 @@ public class FilteredImage {
         history_stack = new Stack<Image>();
     }
 
-    public void setImage(Image image){
+    public void pushImage(Image image){
         this.history_stack.push(image);
     }
 
@@ -30,7 +30,7 @@ public class FilteredImage {
             this.history_stack.pop();
         }
     }
-    public void pushImage(Image history_element){history_stack.push(history_element);}
+
     public Image getImage(){
         return history_stack.peek();
     }
