@@ -19,7 +19,7 @@ public class BlurFilters {
 
             }
         }
-        return convolutionBlur(image, kernel, kernel_size * kernel_size);
+        return convolutionBlur(image, kernel, 1.0/(double)(kernel_size * kernel_size));
     }
 
     public static Image motionBlur(Image image, int kernel_size){
@@ -30,16 +30,16 @@ public class BlurFilters {
 
             }
         }
-        return convolutionBlur(image, kernel, kernel_size * kernel_size);
+        return convolutionBlur(image, kernel, 1.0/(double)(kernel_size * kernel_size));
     }
-    public static Image convolutionBlur(Image image, double[][] kernel, double bias) {
+    public static Image convolutionBlur(Image image, double[][] kernel, double factor) {
         int kernelCenter = (kernel.length/2);
         ic = new ImageCharacteristics(image);
         for (int x = 0; x < ic.width; x++) {
             for (int y = 0; y < ic.height; y++) {
 
                 ic.pw.setColor(x, y,
-                        kernelMagic(kernel,x-kernelCenter,y-kernelCenter, ic.pr, bias));
+                        kernelMagic(kernel,x-kernelCenter,y-kernelCenter, ic.pr, factor));
 
             }
         }
@@ -48,7 +48,7 @@ public class BlurFilters {
 
 
 
-    public static Color kernelMagic(double[][] kernel, int diffX, int diffY, PixelReader pr, double bias){
+    public static Color kernelMagic(double[][] kernel, int diffX, int diffY, PixelReader pr, double factor){
         double avgR = 0, avgG= 0 ,avgB=0;
         for (int i = 0 ; i < kernel.length; i++){
             for (int j = 0 ; j < kernel.length; j++){
@@ -62,7 +62,7 @@ public class BlurFilters {
                 }
             }
         }
-        return Color.color(boundaryCheck(avgR / bias), boundaryCheck(avgG/ bias),boundaryCheck(avgB/ bias));
+        return Color.color(boundaryCheck(avgR * factor), boundaryCheck(avgG * factor),boundaryCheck(avgB * factor));
     }
 
     private static double boundaryCheck(double value){
