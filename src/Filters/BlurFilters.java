@@ -11,12 +11,19 @@ import javafx.scene.paint.Color;
 public class BlurFilters {
     private static ImageCharacteristics ic;
 
-    public static Image averageBlur(Image image, int kernel_size) {
+    public static Image averageBlur(Image image, int kernel_size){
         double[][] kernel = new double[kernel_size][kernel_size];
         for(int i = 0; i < kernel_size; i++){
-            kernel[i][i] = 1/(double)(kernel_size * kernel_size);
+            for (int j = 0 ; j < kernel_size ; j ++){
+                kernel[i][j] = 1/(double)(kernel_size * kernel_size);
+
+            }
         }
-        int kernelCenter = (int) Math.ceil((double)kernel_size/2);
+        return convolutionBlur(image, kernel);
+    }
+
+    public static Image convolutionBlur(Image image, double[][] kernel ) {
+        int kernelCenter = (kernel.length/2);
         ic = new ImageCharacteristics(image);
         for (int x = 0; x < ic.width; x++) {
             for (int y = 0; y < ic.height; y++) {
@@ -45,8 +52,6 @@ public class BlurFilters {
         }
         return Color.color(boundaryCheck(avgR), boundaryCheck(avgG),boundaryCheck(avgB));
     }
-
-
 
     private static double boundaryCheck(double value){
         if (value > 1) return 1;
