@@ -26,7 +26,7 @@ public class BlurFilters {
         double[][] kernel = new double[kernel_size][kernel_size];
         for(int i = 0; i < kernel_size; i++){
             for (int j = 0 ; j < kernel_size ; j ++){
-                kernel[i][j] = (i == j ? 1 : 0)/(double)(kernel_size * kernel_size);
+                kernel[i][j] = (i == j ? 1 : 0);
 
             }
         }
