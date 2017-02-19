@@ -44,7 +44,11 @@ public class MainWindowController {
         openDialog("/Views/MosaicDialog.fxml");
         updateHistogram(fullColorFiltered.getImage());
     }
-
+    @FXML
+    private void blurAverage() throws IOException{
+        openDialog("/Views/AverageBlurDialog.fxml");
+        updateHistogram(fullColorFiltered.getImage());
+    }
     @FXML
     private void get_last(){
         fullColorFiltered.popLast();
@@ -75,6 +79,7 @@ public class MainWindowController {
     @FXML
     private void toSepia(){
         Image colorImage = ColorFilters.sepiaTone(fullColorFiltered.getImage());
+        fullColorFiltered.addFilter("Sepia");
         fullColorFiltered.pushImage(colorImage);
         updateHistogram(colorImage);
     }

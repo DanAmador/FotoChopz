@@ -103,6 +103,11 @@
             <Menu mnemonicParsing="false" text="Filters">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#mosaicFilter" text="Mosaic" fx:id="menu_mosaic" />
+                <Menu mnemonicParsing="false" text="Blur">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#blurAverage" text="Average" fx:id="menu_blur_average" />
+                  </items>
+                </Menu>
               </items>
             </Menu>
           </menus>
