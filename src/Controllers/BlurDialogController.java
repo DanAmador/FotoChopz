@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  */
 
 
-public class AverageBlurDialogController  {
+public class BlurDialogController {
     @FXML
     Slider slider_kernel_size;
     @FXML
@@ -24,8 +24,8 @@ public class AverageBlurDialogController  {
     private FilteredImage fullColorFiltered = FilteredImage.getInstance();
 
     @FXML
-    public void submitValue() {
-        int kernel_size = (int)(slider_kernel_size.getValue() * 2) +1 ;
+    public void submitValueAverageBlur() {
+        int kernel_size = (int)(Math.ceil(slider_kernel_size.getValue()) * 2) +1 ;
         fullColorFiltered.pushImage(BlurFilters.averageBlur(fullColorFiltered.getImage(),kernel_size));
         fullColorFiltered.addFilter(String.format("Average filter with kernel: %dx%d", kernel_size,kernel_size));
         Stage stage = (Stage) submit_button.getScene().getWindow();
@@ -33,8 +33,16 @@ public class AverageBlurDialogController  {
     }
 
     @FXML
+    public void submitValueMotionBlur() {
+        int kernel_size = (int)(Math.ceil(slider_kernel_size.getValue()) * 2) +1 ;
+        fullColorFiltered.pushImage(BlurFilters.motionBlur(fullColorFiltered.getImage(),kernel_size));
+        fullColorFiltered.addFilter(String.format("Motion filter with kernel: %dx%d", kernel_size,kernel_size));
+        Stage stage = (Stage) submit_button.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
     public void updateLabel(){
-        int kernel_size = (int)(slider_kernel_size.getValue() * 2) +1 ;
+        int kernel_size = (int)(Math.ceil(slider_kernel_size.getValue()) * 2) +1 ;
         label_info.setText(String.format("Kernel area: %dx%d",  kernel_size, kernel_size));
     }
 }

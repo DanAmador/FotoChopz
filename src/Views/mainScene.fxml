@@ -106,6 +106,7 @@
                 <Menu mnemonicParsing="false" text="Blur">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#blurAverage" text="Average" fx:id="menu_blur_average" />
+                    <MenuItem mnemonicParsing="false" onAction="#motionBlur" text="Motion" />
                   </items>
                 </Menu>
               </items>

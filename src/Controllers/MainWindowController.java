@@ -49,6 +49,12 @@ public class MainWindowController {
         openDialog("/Views/AverageBlurDialog.fxml");
         updateHistogram(fullColorFiltered.getImage());
     }
+
+    @FXML
+    private void motionBlur() throws IOException{
+        openDialog("/Views/MotionBlurDialog.fxml");
+        updateHistogram(fullColorFiltered.getImage());
+    }
     @FXML
     private void get_last(){
         fullColorFiltered.popLast();
