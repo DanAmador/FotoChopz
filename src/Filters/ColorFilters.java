@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 import java.util.HashMap;
 
+import static Helpers.BasicImageHelper.boundaryCheck;
+
 /**
  * Created by Dan Amador on 2/5/2017.
  */
@@ -107,9 +109,5 @@ public class ColorFilters {
         return ic.wImage;
     }
 
-    private static double boundaryCheck(double value){
-        if (value > 1) return 1;
-        else if (value < 0) return 0;
-        return value;
-    }
+
 }

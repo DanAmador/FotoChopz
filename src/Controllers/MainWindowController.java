@@ -55,6 +55,12 @@ public class MainWindowController {
         openDialog("/Views/MotionBlurDialog.fxml");
         updateHistogram(fullColorFiltered.getImage());
     }
+
+    @FXML
+    private void findEdges() throws IOException{
+        openDialog("/Views/EdgeDetectionDialog.fxml");
+        updateHistogram(fullColorFiltered.getImage());
+    }
     @FXML
     private void get_last(){
         fullColorFiltered.popLast();

@@ -109,6 +109,7 @@
                     <MenuItem mnemonicParsing="false" onAction="#motionBlur" text="Motion" />
                   </items>
                 </Menu>
+                <MenuItem mnemonicParsing="false" onAction="#findEdges" text="Edge Detection" />
               </items>
             </Menu>
           </menus>
