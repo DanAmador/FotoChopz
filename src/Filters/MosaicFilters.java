@@ -2,10 +2,7 @@ package Filters;
 
 import Helpers.ImageCharacteristics;
 import javafx.scene.image.Image;
-import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
-
-import java.awt.*;
 
 /**
  * Created by Dan Amador on 2/6/2017.

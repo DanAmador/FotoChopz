@@ -1,7 +1,6 @@
 package Controllers;
 
 import Filters.BlurFilters;
-import Filters.MosaicFilters;
 import Helpers.FilteredImage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,7 +35,7 @@ public class BlurDialogController {
     public void submitValueMotionBlur() {
         int kernel_size = (int)(Math.ceil(slider_kernel_size.getValue()) * 2) +1 ;
         fullColorFiltered.pushImage(BlurFilters.motionBlur(fullColorFiltered.getImage(),kernel_size));
-        fullColorFiltered.addFilter(String.format("Motion filter with kernel: %dx%d", kernel_size,kernel_size));
+        fullColorFiltered.addFilter(String.format("Motion Blur filter with kernel: %dx%d", kernel_size,kernel_size));
         Stage stage = (Stage) submit_button.getScene().getWindow();
         stage.close();
     }

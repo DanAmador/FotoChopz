@@ -23,6 +23,7 @@ public class ConvolutionHelpers {
         }
         return ic.wImage;
     }
+
     public static Color kernelMagic(double[][] kernel, int diffX, int diffY, PixelReader pr, double factor){
         double avgR = 0, avgG= 0 ,avgB=0;
         for (int i = 0 ; i < kernel.length; i++){

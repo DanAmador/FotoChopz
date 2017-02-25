@@ -62,6 +62,16 @@ public class MainWindowController {
         updateHistogram(fullColorFiltered.getImage());
     }
     @FXML
+    private void embossImage() throws IOException{
+        openDialog("/Views/EmbossDialog.fxml");
+        updateHistogram(fullColorFiltered.getImage());
+    }
+    @FXML
+    private void sharpen() throws IOException{
+        openDialog("/Views/SharpenDialog.fxml");
+        updateHistogram(fullColorFiltered.getImage());
+    }
+    @FXML
     private void get_last(){
         fullColorFiltered.popLast();
         updateHistogram(fullColorFiltered.getImage());

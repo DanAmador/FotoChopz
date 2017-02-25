@@ -1,18 +1,8 @@
 package Controllers;
 
-import Filters.BlurFilters;
 import Filters.EdgeDetectionFilters;
 import Helpers.FilteredImage;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.stage.Stage;
-
-import Filters.BlurFilters;
-import Filters.MosaicFilters;
-import Helpers.FilteredImage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

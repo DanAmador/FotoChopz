@@ -1,10 +1,8 @@
 package Filters;
 
-import Helpers.ImageCharacteristics;
 import javafx.scene.image.Image;
 
 import static Helpers.ConvolutionHelpers.convolutionMaskTranslation;
-import static Helpers.ConvolutionHelpers.kernelMagic;
 
 /**
  * Created by Dan Amador on 2/18/2017.

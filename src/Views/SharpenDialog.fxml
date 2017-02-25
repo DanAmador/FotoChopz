@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.VBox?>
-<VBox id="root" fx:id="vbox_id" alignment="CENTER" disable="false" fillWidth="true" snapToPixel="true" spacing="5.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.BlurDialogController">
+<VBox id="root" fx:id="vbox_id" alignment="CENTER" disable="false" fillWidth="true" snapToPixel="true" spacing="5.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.SharpenDialogController">
     <children>
         <Label fx:id="label_info" alignment="CENTER" rotate="360.0" text="Kernel area: 3x3" VBox.vgrow="ALWAYS" />
         <Slider fx:id="slider_kernel_size" max="7.0" min="1.0" onContextMenuRequested="#updateLabel" onDragDetected="#updateLabel" onDragDone="#updateLabel" onDragDropped="#updateLabel" onDragEntered="#updateLabel" onDragExited="#updateLabel" onDragOver="#updateLabel" onMouseClicked="#updateLabel" onMouseDragEntered="#updateLabel" onMouseDragExited="#updateLabel" onMouseDragOver="#updateLabel" onMouseDragReleased="#updateLabel" onMouseDragged="#updateLabel" onMouseEntered="#updateLabel" onMouseExited="#updateLabel" onMouseMoved="#updateLabel" onMousePressed="#updateLabel" onMouseReleased="#updateLabel" onScroll="#updateLabel" onScrollFinished="#updateLabel" onScrollStarted="#updateLabel" orientation="HORIZONTAL" showTickLabels="false" showTickMarks="false" snapToTicks="false" value="1.0" VBox.vgrow="ALWAYS" />
-        <Button fx:id="submit_button" alignment="CENTER" mnemonicParsing="false" onAction="#submitValueAverageBlur" prefWidth="200.0" text="Submit" VBox.vgrow="ALWAYS" />
+        <Button  fx:id="submit_button" alignment="CENTER" mnemonicParsing="false" onAction="#submitSharpness" prefWidth="200.0" text="Normal" VBox.vgrow="ALWAYS" />
+        <Button  alignment="CENTER" mnemonicParsing="false" onAction="#submitSubtleSharpness" prefWidth="200.0" text="Subtle" VBox.vgrow="ALWAYS" />
+        <Button  alignment="CENTER" mnemonicParsing="false" onAction="#submitExcessiveSharpness" prefWidth="200.0" text="Excessive" VBox.vgrow="ALWAYS" />
     </children>
 </VBox>
