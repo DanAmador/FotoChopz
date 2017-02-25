@@ -128,4 +128,36 @@ public class EdgeDetectionFilters {
         return convolutionMaskTranslation(image,kernel,1.0/8.0);
 
     }
+    /*
+    @param direction if true = right
+     */
+    public static Image embossImage(Image image, int kernel_size, boolean direction ){
+        double[][] kernel = new double[kernel_size][kernel_size];
+        int kernel_center = kernel_size / 2;
+        int counter = 0;
+        for(int y = 0; y < kernel_size; y++){
+            for (int x = 0 ; x < kernel_size ; x ++){
+                if (direction){
+                    if (y != x) {
+
+                        kernel[y][x] = (x > y) ? -1 : 1;
+                    }else{
+                        kernel[y][x] = 0;
+                    }
+                }else{
+                    int diagonal_position = kernel_size - y - 1;
+                    if ( diagonal_position != x ){
+                        kernel[y][x] = diagonal_position > x ? 1 : -1;
+                    }
+                    else{
+                        kernel[y][x] = 0;
+                    }
+                }
+
+            }
+        }
+        kernel[kernel_center][kernel_center] = counter;
+        return convolutionMaskTranslation(image,kernel, 1, 0.5);
+
+    }
 }

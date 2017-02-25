@@ -40,4 +40,37 @@ public class ConvolutionHelpers {
         }
         return Color.color(boundaryCheck(avgR * factor), boundaryCheck(avgG * factor),boundaryCheck(avgB * factor));
     }
+
+    public static Image convolutionMaskTranslation(Image image, double[][] kernel, double factor, double bias) {
+        int kernelCenter = (kernel.length/2);
+        ic = new ImageCharacteristics(image);
+        for (int x = 0; x < ic.width; x++) {
+            for (int y = 0; y < ic.height; y++) {
+
+                ic.pw.setColor(x, y,
+                        kernelMagic(kernel,x-kernelCenter,y-kernelCenter, ic.pr, factor,bias));
+            }
+        }
+        return ic.wImage;
+    }
+
+    public static Color kernelMagic(double[][] kernel, int diffX, int diffY, PixelReader pr, double factor, double bias){
+        double avgR = 0, avgG= 0 ,avgB=0;
+        for (int i = 0 ; i < kernel.length; i++){
+            for (int j = 0 ; j < kernel.length; j++){
+                try{
+                    Color color = pr.getColor(diffX + i, diffY+j);
+                    avgR += (kernel[i][j] * ( color.getRed()));
+                    avgG += (kernel[i][j] * (color.getGreen()));
+                    avgB += (kernel[i][j] * (color.getBlue()));
+                }catch(IndexOutOfBoundsException e){
+                    continue;
+                }
+            }
+        }
+        return Color.color(boundaryCheck(avgR * factor+ bias), boundaryCheck(avgG * factor+ bias),boundaryCheck(avgB * factor+ bias));
+    }
+
+
+
 }
