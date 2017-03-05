@@ -63,36 +63,37 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleLoadAction" text="Load" fx:id="menu_file_load" />
                 <MenuItem mnemonicParsing="false" onAction="#get_last" text="Undo" fx:id="menu_undo" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-              <items>
-                <Menu mnemonicParsing="false" text="Colors">
+                <Menu mnemonicParsing="false" text="Export">
                   <items>
-                    <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Red" fx:id="check_red" />
-                    <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Green" fx:id="check_green" />
-                    <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Blue" fx:id="check_blue" />
-                    <Menu mnemonicParsing="false" text="Grayscale">
-                      <fx:define>
-                        <ToggleGroup fx:id="toggle_grayscale" />
-                      </fx:define>
-                      <items>
-                        <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Activate" fx:id="check_grayscale" />
-                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="false" text="Average" toggleGroup="$toggle_grayscale" fx:id="radio_average" />
-                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Weight" toggleGroup="$toggle_grayscale" fx:id="radio_weight" />
-                        <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Lightness" toggleGroup="$toggle_grayscale" fx:id="radio_lightness" />
-                      </items>
-                    </Menu>
-                    <Menu mnemonicParsing="false" text="Contrast">
-                      <items>
-                        <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Activate" fx:id="check_contrast" />
-                        <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Inverse" fx:id="check_contrast_inverse" />
-                      </items>
-                    </Menu>
-                    <MenuItem mnemonicParsing="false" onAction="#changeBrightness" text="Brightness" fx:id="menu_brightness" />
-                    <MenuItem mnemonicParsing="false" onAction="#toSepia" text="Sepia" fx:id="menu_sepia" />
+                    <MenuItem mnemonicParsing="false" onAction="#exportHtml" text="HTML" fx:id="menu_export_html" />
                   </items>
                 </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Colors">
+              <items>
+                <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Red" fx:id="check_red" />
+                <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Green" fx:id="check_green" />
+                <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Blue" fx:id="check_blue" />
+                <Menu mnemonicParsing="false" text="Grayscale">
+                  <fx:define>
+                    <ToggleGroup fx:id="toggle_grayscale" />
+                  </fx:define>
+                  <items>
+                    <CheckMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Activate" fx:id="check_grayscale" />
+                    <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="false" text="Average" toggleGroup="$toggle_grayscale" fx:id="radio_average" />
+                    <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" selected="true" text="Weight" toggleGroup="$toggle_grayscale" fx:id="radio_weight" />
+                    <RadioMenuItem mnemonicParsing="false" onAction="#changeColorModel" text="Lightness" toggleGroup="$toggle_grayscale" fx:id="radio_lightness" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Contrast">
+                  <items>
+                    <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Activate" fx:id="check_contrast" />
+                    <CheckMenuItem mnemonicParsing="false" onAction="#changeContrast" text="Inverse" fx:id="check_contrast_inverse" />
+                  </items>
+                </Menu>
+                <MenuItem mnemonicParsing="false" onAction="#changeBrightness" text="Brightness" fx:id="menu_brightness" />
+                <MenuItem mnemonicParsing="false" onAction="#toSepia" text="Sepia" fx:id="menu_sepia" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Filters">
