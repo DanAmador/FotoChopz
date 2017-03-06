@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="root" fx:id="vbox_id" alignment="CENTER" disable="false" fillWidth="true" snapToPixel="true" spacing="5.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.HTMLExportDialogController">
+  <children>
+    <Label fx:id="label_info" alignment="CENTER" rotate="360.0" text="Mosaic area: 5x5" VBox.vgrow="ALWAYS" />
+    <Slider fx:id="slider_area" max="25.0" min="5.0" onContextMenuRequested="#updateLabel" onDragDetected="#updateLabel" onDragDone="#updateLabel" onDragDropped="#updateLabel" onDragEntered="#updateLabel" onDragExited="#updateLabel" onDragOver="#updateLabel" onMouseClicked="#updateLabel" onMouseDragEntered="#updateLabel" onMouseDragExited="#updateLabel" onMouseDragOver="#updateLabel" onMouseDragReleased="#updateLabel" onMouseDragged="#updateLabel" onMouseEntered="#updateLabel" onMouseExited="#updateLabel" onMouseMoved="#updateLabel" onMousePressed="#updateLabel" onMouseReleased="#updateLabel" onScroll="#updateLabel" onScrollFinished="#updateLabel" onScrollStarted="#updateLabel" orientation="HORIZONTAL" showTickLabels="false" showTickMarks="false" snapToTicks="false" value="5.0" VBox.vgrow="ALWAYS" />
+    <CheckBox fx:id="check_color" mnemonicParsing="false" selected="true" text="Color?" />
+    <Button fx:id="submit_button" alignment="CENTER" mnemonicParsing="false" onAction="#submitValue" prefWidth="200.0" text="Submit" VBox.vgrow="ALWAYS" />
+  </children>
+</VBox>

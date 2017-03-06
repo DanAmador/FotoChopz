@@ -6,20 +6,20 @@ import javafx.scene.paint.Color;
  * Created by Dan Amador on 3/5/2017.
  */
 public class AsciiPixelStructure {
-    private char letter;
+    private String letter;
     private String hexColor;
 
-    public AsciiPixelStructure(char letter, Color color){
+    public AsciiPixelStructure(String letter, Color color){
         this.letter = letter;
         this.hexColor = toRGBCode(color);
     }
 
 
     public String getLetterWithColor(){
-        return String.format("<span style=\"color:%s\"> %c </span>", this.hexColor,this.letter);
+        return String.format("<span style=\"color:%s\">%s</span>", this.hexColor,this.letter);
     }
 
-    public char getLetter(){
+    public String getLetter(){
         return this.letter;
     }
     private String toRGBCode( Color color ) {

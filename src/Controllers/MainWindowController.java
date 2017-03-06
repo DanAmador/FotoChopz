@@ -22,7 +22,6 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -46,31 +45,7 @@ public class MainWindowController {
 
     @FXML
     private void exportHtml() throws IOException {
-        int mosaic_area = 5 ;
-        fullColorFiltered.clearVector();
-        if (!fullColorFiltered.getFiltersUsed().empty()) {
-            if (fullColorFiltered.getFiltersUsed().peek().contains("Mosaic")) {
-                String[] splits = fullColorFiltered.getFiltersUsed().peek().split("x");
-                mosaic_area = Integer.parseInt(splits[1]);
-            }
-        }
-
-
-        fullColorFiltered.fillAsciiVector(mosaic_area);
-        String toExport = AsciiConverterFilter.AsciiHtml(fullColorFiltered.getVector(), "title", true);
-        File file = new File(toExport);
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("test.html"));
-            out.write(toExport);  //Replace with the string
-            //you are trying to write
-            out.close();
-            System.out.println("Hi");
-
-        } catch (IOException e) {
-            System.out.println("Exception ");
-
-        }
+        openDialog("/Views/HtmlExportdialog.fxml");
     }
 
     @FXML
