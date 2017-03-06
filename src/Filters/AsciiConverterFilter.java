@@ -13,7 +13,7 @@ public class AsciiConverterFilter {
 
     public static String AsciiHtml(Image image, int mosaic_area, Boolean withColor) {
         ImageCharacteristics ic = new ImageCharacteristics(image);
-        String html_text = "<!DOCTYPE html><html><head><style>p{font-weight:bold}</style><title>Image to Html</title><body>%s</body></html>";
+        String html_text = "<!DOCTYPE html><html><head><style>p{font-weight:bold;margin:0}</style><title>Image to Html</title><body>%s</body></html>";
         String currentText = "";
 
         int jump = mosaic_area / 2;
