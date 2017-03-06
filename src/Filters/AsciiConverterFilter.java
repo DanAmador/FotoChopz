@@ -16,10 +16,9 @@ public class AsciiConverterFilter {
         String html_text = "<!DOCTYPE html><html><head><style>p{font-weight:bold;margin:0}</style><title>Image to Html</title><body>%s</body></html>";
         String currentText = "";
 
-        int jump = mosaic_area / 2;
         for (int i = 0; i < ic.height; i += mosaic_area) {
             currentText +="<p>";
-            for (int j = 0; j < ic.width; j += jump) {
+            for (int j = 0; j < ic.width; j += mosaic_area) {
                 Color color = ic.pr.getColor(j,i);
                 double colorValue = ColorFilters.lightness(color).getRed() * 255;
                 String letter = AsciiPixelHelper.getCharFromGrayValue(colorValue);
